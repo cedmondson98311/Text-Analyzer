@@ -28,16 +28,13 @@ function formSubmitted() {
 		$('.unique').text(uniqueWords);
 		$('.sentence-length').text(avgSentenceLength + ' characters');
 		$('.word-length').text(avgWordLength + ' characters');
-        
         $('.text-report').removeClass('hidden');
 	})
 }
 
 function splitToWords(text) {
-	var tempWords = text.toLowerCase().replace(/[\"?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(" ");
-	console.log(tempWords);
-	return tempWords;
- }
+	return text.toLowerCase().replace(/[\"?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(" ");
+}
 
 //This second function is different from splitToWords only in that it keeps the periods and certain
 //other characters in the text and splits by ./!/? rather than spaces
@@ -49,7 +46,6 @@ function splitToSentences(text) {
 	if(splitSentences[splitSentences.length - 1] === '') {
 		splitSentences.pop();
 	} else{}
-	console.log(splitSentences);
 	return splitSentences;
 }
 
@@ -87,6 +83,7 @@ function uniqueWordCount(array) {
 //images show the average computed in words. the program will also include blank spaces
 //as characters
 function findAvgSentenceLength(array) {
+	
 	var rawLength = 0;
 	var numSentences = 0;
 
@@ -94,11 +91,11 @@ function findAvgSentenceLength(array) {
 		rawLength += array[i].length;
 		numSentences += 1;
 	}
-
 	return (rawLength/numSentences);
 }
 
 function findAvgWordLength(array) {
+	
 	var rawWordLength = 0;
 	var numWords = 0;
 
@@ -106,10 +103,6 @@ function findAvgWordLength(array) {
 		rawWordLength += array[i].length;
 		numWords += 1;
 	}
-	console.log('raw word length: ' + rawWordLength);
-	console.log('numWords ' + numWords);
-	console.log('calculation ' +(rawWordLength/numWords));
-
 	return (rawWordLength/numWords);
 }
 
