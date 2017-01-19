@@ -18,10 +18,10 @@ function formSubmitted() {
 		//functions that work with the array of words
 		var wordCount = words.length;
 		var uniqueWords = uniqueWordCount(words);
-		var avgWordLength = findAvgWordLength(words);
+		var avgWordLength = findAvgWordLength(words).toFixed(2);
 
 		//functions that work with the array of sentences
-		var avgSentenceLength = findAvgSentenceLength(sentences);
+		var avgSentenceLength = findAvgSentenceLength(sentences).toFixed(2);
 
 		//use jquery to apply changes to index
 		$('.word-count').text(wordCount);
